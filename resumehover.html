@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Professional portfolio of Md. Akbar, web developer and coder">
+  <title>Md. Akbar - Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --text: #333;
+      --container-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --border: #ddd;
+      
+      /* Section-specific colors */
+      --hero-color: #7e57c2; /* Purple */
+      --projects-color: #26a69a; /* Teal */
+      --skills-color: #42a5f5; /* Blue */
+      --about-color: #ff7043; /* Orange */
+      --contact-color: #66bb6a; /* Green */
+      --nav-color: #5c6bc0; /* Indigo */
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --container-bg: #1e1e1e;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --border: #444;
+      
+      /* Dark mode variants */
+      --hero-color: #9575cd;
+      --projects-color: #26c6da;
+      --skills-color: #64b5f6;
+      --about-color: #ff8a65;
+      --contact-color: #81c784;
+      --nav-color: #7986cb;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      scroll-padding-top: 70px;
+    }
+
+    nav {
+      background: gray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s;
+      padding: 0.3rem 0;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: #ffeb3b; /* Yellow for hover */
+      transform: translateY(-2px);
+    }
+
+    .toggle-container {
+      margin-left: auto;
+      padding-left: 1.5rem;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      backdrop-filter: blur(5px);
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: var(--container-bg);
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--hero-color);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--hero-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--hero-color);
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-top: 20px;
+    }
+
+    /* Section-specific heading colors */
+    #projects h2 {
+      color: var(--projects-color);
+    }
+    #skills h2 {
+      color: var(--skills-color);
+    }
+    #about h2 {
+      color: var(--about-color);
+    }
+    #contact h2 {
+      color: orange;
+    }
+    #ab{
+        color: var(--about-color);
+
+    }
+    #abk{
+        color: var(--about-color);
+
+    }
+    #abou {
+      color: var(--about-color);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    /* Section-specific subheading colors */
+    #projects h3 {
+      color: var(--projects-color);
+    }
+    #skills h3 {
+      color: var(--skills-color);
+    }
+    #pal{
+      color:rgb(113, 113, 233);
+     }
+    #about h3 {
+      color: var(--about-color);
+    }
+
+    section:first-child h2 {
+      padding-top: 0;
+      margin-top: 2rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    li:before {
+      content: "•";
+      color: var(--text);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--hero-color);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--container-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--projects-color);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px var(--shadow);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5000px;
+      height: 80px;
+      width: 80px;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem;
+      color: black;
+    }
+
+    .project-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      color: var(--projects-color);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: var(--skills-color);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: transform 0.3s;
+    }
+    .skill-tag:hover{
+        transform: scale(1.1);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      margin: 0;
+    }
+
+    .contact-info a {
+      color: var(--contact-color);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        scroll-padding-top: 100px;
+      }
+      
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+        height: auto;
+      }
+      
+      .nav-links {
+        margin-bottom: 1rem;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .toggle-container {
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      h2 {
+        padding-top: 10px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        color: #26c6da;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#abk">Projects</a>
+      <a href="#ab">Skills</a>
+      <a href="#about">About</a>
+      <a href="#abou">Contact</a>
+    </div>
+    <div class="toggle-container">
+      <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">Toggle Mode</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="home" class="hero">
+      <h1>Md. Akbar</h1>
+      <p>Web Developer & Technology Enthusiast | Creating innovative solutions through code</p>
+      <a href="#abk" class="btn">View My Work</a>
+    </section>
+
+    <section id="abk" >
+      <h2 >Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          
+          <div class="project-content">
+            <h3 class="project-head">Medicare App</h3>
+            <p id="pal">Comprehensive healthcare management application for maintaining and accessing medical records with secure user authentication.</p>
+            
+          </div>
+        </div>
+
+        <div class="project-card">
+          
+          <div class="project-content">
+            <h3 class="project-head">VisaChatbot</h3>
+            <p id="pal">AI-powered chatbot that assists users in visa application processes and provides updated country-specific policy information.</p>
+            
+          </div>
+        </div>
+
+        <div class="project-card">
+          
+          <div class="project-content">
+            <h3 class="project-head">Anime Streaming Website</h3>
+            <p id="pal">Fully responsive anime streaming platform featuring category browsing, search functionality, and a custom video player.</p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ab">
+      <h2 >Technical Skills</h2>
+      <h3>Programming Languages</h3>
+      <div class="skills-container">
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript</span>
+      </div>
+
+      <h3>Web Development</h3>
+      <div class="skills-container">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+      </div>
+
+      <h3>Tools & Technologies</h3>
+      <div class="skills-container">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">LocalStorage</span>
+         <span class="skill-tag">PHP</span>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Aspiring to master new technologies and continuously evolve as a web developer and coder. Passionate about innovation and building unique, impactful solutions that solve real-world problems through technology.</p>
+      
+      <h3>Education</h3>
+      <ul>
+        <li><strong>B.Tech in Computer Science</strong> - Guru Nanak Institutions Technical Campus (Expected Graduation: 2027)</li>
+        <li><strong>Intermediate</strong> - ABV Junior College (9.4 GPA)</li>
+        <li><strong>High School</strong> - Sage High School (9.4 CGPA)</li>
+      </ul>
+
+      <h3>Achievements</h3>
+      <ul>
+        <li>Participated in the national-level hackathon <strong>HACKARENA</strong></li>
+        <li>Participated in the national-level hackathon and secured <strong>2nd place</strong> in paper presentation at <strong>Technotsav</strong></li>
+        <li>Participated in <strong>Virtual Vista 2.0</strong> tech fest</li>
+      </ul>
+    </section>
+
+    <section id="abou">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:mdakbar0024c@gmail.com">mdakbar0024c@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:7995663762">7995663762</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-akbar-771851326" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohammad-akbar</a></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('darkMode', isDark);
+    }
+
+    // Check for saved user preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        const offset = 70;
+        
+        window.scrollTo({
+          top: target.offsetTop - offset,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
